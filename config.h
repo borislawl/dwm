@@ -14,7 +14,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
-static const char *fonts[]          = { "Menlo:size=8", "Font Awesome 6 Pro Solid:pixelsize=11", " Font Awesome 6 Brands:pixelsize=11"  };
+static const char *fonts[]          = { "Spleen:size=9", "Font Awesome 6 Pro Solid:pixelsize=10", "Font Awesome 6 Brands:pixelsize=10"};
 static const char dmenufont[]       = "monospace:size=9";
 static const char col_gray1[]       = "#111111";
 static const char col_gray2[]       = "#444444";
@@ -30,7 +30,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "","","","","","","","","" };
+static const char *tags[] = { "","","","","","","","","" };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 static const int momentaryalttags = 0; /* 1 means /alttags will show only when key is held down*/
 
