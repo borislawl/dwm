@@ -4,10 +4,10 @@
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
+static const unsigned int gappih    = 7;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 7;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 7;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 7;       /* vert outer gap between windows and screen edge */
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int user_bh            = 20;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -19,8 +19,10 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char bar_sel[]         = "#1885AD";
+//static const char bar_sel[]         = "#b19449";
 static const char col_cyan[]        = "#005577";
 static const char window_border[]   = "#105D79";
+//static const char window_border[]         = "#b19449";
 static const unsigned int baralpha = 0xa0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
@@ -56,7 +58,8 @@ static const Rule rules[] = {
         { "LF",	            NULL,       NULL,       1 << 4,			0,           -1 },
         { "newsboat",       NULL,       NULL,       1 << 5,			0,           -1 },
         { "ncmpcpp",	    NULL,       NULL,       1 << 6,			0,           -1 },
-        { "Clementine",	    NULL,       NULL,       1 << 6,			0,           -1 },
+        { "term1n4l",	    NULL,       NULL,       1 << 1,			0,           -1 },
+        { "h0m3t3rm",	    NULL,       NULL,       1 << 0,			0,           -1 },
 };
 
 /* layout(s) */
@@ -85,7 +88,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "st","-c term1n4l", NULL };
+static const char *termhomecmd[]  = { "st","-c h0m3t3rm", NULL };
 
 static const Key keys[] = {
 	/* media keys */
@@ -99,8 +103,8 @@ static const Key keys[] = {
      /*ThinkVantage Key*/
     {0,                 XF86XK_Launch1,                 spawn,   SHCMD("xset dpms force off") },
      /* brightness control */
-    {0,                 XF86XK_MonBrightnessDown,		spawn,  SHCMD("light -U 4") },
-    {0,                 XF86XK_MonBrightnessUp,			spawn,  SHCMD("light -A 4") },
+    {0,                 XF86XK_MonBrightnessDown,		spawn,  SHCMD("light -U 10") },
+    {0,                 XF86XK_MonBrightnessUp,			spawn,  SHCMD("light -A 10") },
      /* screenshot: pacman -S scrot */
     {0,                 XK_Print,                       spawn,  SHCMD("scrot scrot_%Y-%m-%d-%T_$wx$h.png") },
      /* dmenu scripts */
@@ -116,6 +120,7 @@ static const Key keys[] = {
       /* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ControlMask,           XK_Return, spawn,          {.v = termhomecmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
