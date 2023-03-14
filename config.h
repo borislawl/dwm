@@ -22,17 +22,10 @@ static const char bar_sel_fg[]      = "#bbbbbb";
 static const char bar_sel_bg[]      = "#005577";
 static const char col_cyan[]        = "#005577";
 static const char window_border[]   = "#005577";
-static const unsigned int baralpha = 250;
-static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { bar_sel_fg, bar_sel_bg,  window_border  },
-};
-static const unsigned int alphas[][3]      = {
-       /*               fg      bg        border     */
-       [SchemeNorm] = { OPAQUE, baralpha, borderalpha },
-       [SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
