@@ -17,18 +17,17 @@ static const char dmenufont[]       = "monospace:size=9";
 static const char col_gray1[]       = "#111111";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char bar_sel[]         = "#1885AD";
-//static const char bar_sel[]         = "#b19449";
+static const char col_gray4[]       = "#8e8e8e";
+static const char bar_sel_fg[]      = "#bbbbbb";
+static const char bar_sel_bg[]      = "#005577";
 static const char col_cyan[]        = "#005577";
-static const char window_border[]   = "#105D79";
-//static const char window_border[]         = "#b19449";
-static const unsigned int baralpha = 0xa0;
+static const char window_border[]   = "#005577";
+static const unsigned int baralpha = 100;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { bar_sel, col_gray1,  window_border  },
+	[SchemeSel]  = { bar_sel_fg, bar_sel_bg,  window_border  },
 };
 static const unsigned int alphas[][3]      = {
        /*               fg      bg        border     */
