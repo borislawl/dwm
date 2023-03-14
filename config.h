@@ -22,7 +22,7 @@ static const char bar_sel_fg[]      = "#bbbbbb";
 static const char bar_sel_bg[]      = "#005577";
 static const char col_cyan[]        = "#005577";
 static const char window_border[]   = "#005577";
-static const unsigned int baralpha = 100;
+static const unsigned int baralpha = 250;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
