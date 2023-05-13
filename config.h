@@ -12,18 +12,20 @@ static const int smartgaps          = 0;        /* 1 means no outer gap when the
 static const int user_bh            = 20;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int vertpad            = 4;       /* vertical padding of bar */
-static const int sidepad            = 4;     /* horizontal padding of bar */
-static const char *fonts[]          = { "Spleen:size=9", "Font Awesome 6 Pro Solid:pixelsize=10", "Font Awesome 6 Brands:pixelsize=10"};
+static const int vertpad            = 0;       /* vertical padding of bar */
+static const int sidepad            = 0;     /* horizontal padding of bar */
+static const char *fonts[]          = { "Ubuntu:weight=bold:size=8:antialias=true:hinting=true",
+                                        "Font Awesome 6 Pro Solid:pixelsize=10",
+                                        "Font Awesome 6 Brands:pixelsize=10"};
 static const char dmenufont[]       = "monospace:size=9";
-static const char col_gray1[]       = "#111111";
-static const char col_gray2[]       = "#444444";
+static const char col_gray1[]       = "#222222";
+static const char col_gray2[]       = "#111111";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#8e8e8e";
-static const char bar_sel_fg[]      = "#bbbbbb";
-static const char bar_sel_bg[]      = "#005577";
+static const char bar_sel_fg[]      = "#666666";
+static const char bar_sel_bg[]      = "#222222";
 static const char col_cyan[]        = "#005577";
-static const char window_border[]   = "#005577";
+static const char window_border[]   = "#555555";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -32,7 +34,7 @@ static const char *colors[][3]      = {
 
 /* tagging */
 static const char *tags[] = { "","","","","","","","","" };
-static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tagsalt[] = { "home", "term", "web", "code", "file", "read", "play", "notes", "*" };
 static const int momentaryalttags = 0; /* 1 means /alttags will show only when key is held down*/
 
 
@@ -44,7 +46,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
         { "qBittorrent",	NULL,       NULL,       1 << 8,			0,           -1 },
         { "Firefox",		NULL,       NULL,       1 << 2,			0,           -1 },
-        { "Google-chrome",	NULL,       NULL,       1 << 2,			0,           -1 },
+        { "Chromium",	NULL,       NULL,       1 << 2,			0,           -1 },
         { "qutebrowser",	NULL,       NULL,       1 << 2,			0,           -1 },
         { "Zathura",		NULL,       NULL,       1 << 5,			0,           -1 },
         { "Subl",	        NULL,       NULL,       1 << 3,			0,           -1 },
@@ -54,6 +56,7 @@ static const Rule rules[] = {
         { "ncmpcpp",	    NULL,       NULL,       1 << 6,			0,           -1 },
         { "term1n4l",	    NULL,       NULL,       1 << 1,			0,           -1 },
         { "h0m3t3rm",	    NULL,       NULL,       1 << 0,			0,           -1 },
+        { "mpv",	    NULL,       NULL,       1 << 6,			0,           -1 },
 };
 
 /* layout(s) */
@@ -114,6 +117,7 @@ static const Key keys[] = {
       /* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_Menu, spawn,          {.v = termcmd } },
 	{ MODKEY|ControlMask,           XK_Return, spawn,          {.v = termhomecmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
