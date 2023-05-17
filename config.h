@@ -89,8 +89,15 @@ static const Layout layouts[] = {
 
 static const MonitorRule monrules[] = {
 	/* monitor  tag  layout  mfact  nmaster  showbar  topbar */
-	{  1,       -1,  2,      -1,    -1,      -1,      -1     }, // use a different layout for the second monitor
-	{  -1,      -1,  0,      -1,    -1,      -1,      -1     }, // default
+	{   -1,      1,  1,      -1,    -1,      -1,      -1     }, 
+	{   -1,      2,  7,      -1,    -1,      -1,      -1     }, 
+	{   -1,      3,  0,      -1,    -1,      -1,      -1     }, 
+	{   -1,      4,  0,      -1,    -1,      -1,      -1     }, 
+	{   -1,      5,  0,      -1,    -1,      -1,      -1     }, 
+	{   -1,      6,  7,      -1,    -1,      -1,      -1     }, 
+	{   -1,      7,  0,      -1,    -1,      -1,      -1     }, 
+	{   -1,      8,  0,      -1,    -1,      -1,      -1     }, 
+	{   -1,      9,  0,      -1,    -1,      -1,      -1     }, 
 };
 
 /* key definitions */
