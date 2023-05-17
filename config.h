@@ -87,6 +87,19 @@ static const Layout layouts[] = {
 	{ NULL,       NULL },
 };
 
+static const MonitorRule monrules[] = {
+	/* monitor  tag  layout  mfact  nmaster  showbar  topbar */
+	{   -1,      1,  1,      -1,    -1,      -1,      -1     }, 
+	{   -1,      2,  7,      -1,    -1,      -1,      -1     }, 
+	{   -1,      3,  0,      -1,    -1,      -1,      -1     }, 
+	{   -1,      4,  0,      -1,    -1,      -1,      -1     }, 
+	{   -1,      5,  0,      -1,    -1,      -1,      -1     }, 
+	{   -1,      6,  7,      -1,    -1,      -1,      -1     }, 
+	{   -1,      7,  0,      -1,    -1,      -1,      -1     }, 
+	{   -1,      8,  0,      -1,    -1,      -1,      -1     }, 
+	{   -1,      9,  0,      -1,    -1,      -1,      -1     }, 
+};
+
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
