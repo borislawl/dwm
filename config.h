@@ -18,12 +18,12 @@ static const char *fonts[]          = { "Ubuntu:weight=bold:size=8:antialias=tru
                                         "Font Awesome 6 Pro Solid:pixelsize=10",
                                         "Font Awesome 6 Brands:pixelsize=10"};
 static const char dmenufont[]       = "monospace:size=9";
-static const char col_gray1[]       = "#222222";
+static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#111111";
-static const char col_gray3[]       = "#bbbbbb";
+static const char col_gray3[]       = "#777777";
 static const char col_gray4[]       = "#8e8e8e";
-static const char bar_sel_fg[]      = "#666666";
-static const char bar_sel_bg[]      = "#222222";
+static const char bar_sel_fg[]      = "#bbbbbb";
+static const char bar_sel_bg[]      = "#000000";
 static const char col_cyan[]        = "#005577";
 static const char window_border[]   = "#555555";
 static const char *colors[][3]      = {
@@ -65,11 +65,26 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
+#define FORCE_VSPLIT 1  /* nrowgrid layout: force two clients to always split vertically */
+#include "vanitygaps.c"
+
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "TTT",      bstack },
 	{ "[M]",      monocle },
+	{ "HHH",      grid },
+	{ "###",      nrowgrid },
+	{ "---",      horizgrid },
+	{ ":::",      gaplessgrid },
+	{ "|M|",      centeredmaster },
+	{ "[@]",      spiral },
+	{ "[\\]",     dwindle },
+	{ "===",      bstackhoriz },
+	{ "H[]",      deck },
+	{ ">M>",      centeredfloatingmaster },
+	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ NULL,       NULL },
 };
 
 /* key definitions */
@@ -146,8 +161,12 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY|ShiftMask,             XK_y,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[5]} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[6]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
