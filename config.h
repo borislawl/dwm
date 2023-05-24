@@ -130,6 +130,7 @@ static const Key keys[] = {
      /* brightness control */
     {0,                 XF86XK_MonBrightnessDown,		spawn,  SHCMD("light -U 10") },
     {0,                 XF86XK_MonBrightnessUp,			spawn,  SHCMD("light -A 10") },
+    {0,                 XF86XK_ScreenSaver,			    spawn,  SHCMD("slock") },
      /* screenshot: pacman -S scrot */
     {0,                 XK_Print,                       spawn,  SHCMD("scrot scrot_%Y-%m-%d-%T_$wx$h.png") },
      /* dmenu scripts */
@@ -144,6 +145,7 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,             XK_v,      spawn,           SHCMD("st -c vim -e nvim") },
       /* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("firefox") }, 
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Menu, spawn,          {.v = termcmd } },
 	{ MODKEY|ControlMask,           XK_Return, spawn,          {.v = termhomecmd } },
