@@ -14,6 +14,8 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;     /* horizontal padding of bar */
+static const unsigned int baralpha  = 200;
+static const unsigned int borderalpha = OPAQUE;
 static const char *fonts[]          = { "Ubuntu:weight=bold:size=8:antialias=true:hinting=true",
                                         "Font Awesome 6 Pro Solid:pixelsize=10",
                                         "Font Awesome 6 Brands:pixelsize=10"};
@@ -32,6 +34,12 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { bar_sel_fg, bar_sel_bg,  window_border  },
 };
 
+static const unsigned int alphas[][3]      = {
+/*               fg      bg        border     */
+	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
+};
+ 
 /* tagging */
 static const char *tags[] = { "","","","","","","","","" };
 static const char *tagsalt[] = { "home", "term", "web", "code", "file", "read", "play", "notes", "*" };
