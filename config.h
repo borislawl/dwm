@@ -139,8 +139,6 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,             XK_m,      spawn,           SHCMD("st -c ncmpcpp -e ncmpcpp") },
       /*lf file manager*/
     { MODKEY|ShiftMask,             XK_l,      spawn,           SHCMD("st -c LF -e lfrun") },
-      /* newsboat */ 
-    { MODKEY|ShiftMask,             XK_n,      spawn,           SHCMD("st -c newsboat -e newsboat") },
       /* nvim shortcut */
     { MODKEY|ShiftMask,             XK_v,      spawn,           SHCMD("st -c vim -e nvim") },
       /* modifier                     key        function        argument */
